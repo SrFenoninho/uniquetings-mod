@@ -8,6 +8,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,7 +19,7 @@ import net.minecraftforge.common.util.EnumHelper;
 @Mod(modid = Uniquetings.MODID, version = Uniquetings.VERSION, name = "Uniquetings")
 public class Uniquetings {
     public static final String MODID = "uniquetings";
-    public static final String VERSION = "0.3";
+    public static final String VERSION = "0.4";
 
     public static Item.ToolMaterial SWORD_MAT = EnumHelper.addToolMaterial("SWORD_MAT", 3, 0, 10.0F, 56.0F, 22);
     public static Item.ToolMaterial PICKAXE_MAT = EnumHelper.addToolMaterial("PICKAXE_MAT", 3, 0, 10.0F, 6.0F, 22);
@@ -138,6 +139,7 @@ public class Uniquetings {
                 " S ",
                 'B', super_shiny_block, 'S', Items.stick
         );
+        GameRegistry.registerFuelHandler(new FuelHandler());
     }
 
     @SubscribeEvent
